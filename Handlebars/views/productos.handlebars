@@ -1,0 +1,18 @@
+{{#if listExists}}
+<div class="row text-center bg-secondary">
+
+    <h1 class="text-center text-warning">Productos disponibles</h1>  
+    <div class="d-flex justify-content-evenly">
+        {{#each listaProductos}}
+        <div class="card text-bg-light p-2 m-3">
+            <img src={{this.thumbnails}} class="card-img-top" style="height:430px;width:300px" alt="...">
+            <div class="card-body text-bg-secondary border border-dark rounded-4">
+                <h2 class="card-title text-warning">{{this.title}}</h5>
+                <h3 class="card-title text-warning">{{this.price}}</h3>
+                <h4 class="card-title text-warning">{{this.id}}</h4>
+            </div>
+        </div>
+        {{/each}}
+    </div>
+</div>
+{{/if}}
