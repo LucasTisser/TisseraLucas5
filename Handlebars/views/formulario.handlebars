@@ -1,0 +1,48 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="row justify-content-center bg-secondary">
+      <form action="" class="rounded-3 bg-light col-3 p-2 m-3">
+        <label for="titleProduct" class="form-label text-warning fs-3">Ingresar
+          un producto</label>
+        <input
+          class="form-control"
+          id="titleProduct"
+          placeholder="Nombre del producto"
+        />
+        <label for="priceProduct" class="form-label text-warning fs-3">Ingresar
+          un precio para el producto</label>
+        <input
+          class="form-control"
+          id="priceProduct"
+          placeholder="Precio del producto"
+        />
+        <label
+          for="thumbnailProduct"
+          class="form-label text-warning fs-3"
+        >Ingresar una imagen</label>
+        <input
+          class="form-control"
+          id="thumbnailProduct"
+          placeholder="Imagen del producto"
+        />
+        <button
+          type="submit"
+          class="form-control btn btn-warning mt-3"
+          style="width:auto;margin-left:35%"
+          id="btnProductSubmit"
+        >
+        Agregar Producto
+        </button>
+      </form>
+    </div>
+    <footer class="text-center  bg-success">
+        <button type="button" class="btn btn-warning m-5" id="btnGet">Ver productos ingresados</button>
+    </footer>
+  </body>
+</html>
