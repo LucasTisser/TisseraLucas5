@@ -1,0 +1,46 @@
+html(lang="es")
+  head
+    meta(charset="UTF-8")
+    meta(http-equiv="X-UA-Compatible" content="IE=edge")
+    meta(name="viewport" content="width=device-width, initial-scale=1.0")
+    link(
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx"
+      crossorigin="anonymous")
+    title="Productos"
+
+  body
+    header
+      nav(class="navbar navbar-expand-lg bg-success")
+        div(class="container-fluid")
+          div(class="col p-3 m-2")
+            img(
+              src="https://cdn-icons-png.flaticon.com/512/2111/2111786.png"
+              alt="Logo"
+              style="width:80px;height:80px")
+          div(class="collapse navbar-collapse" id="navbarSupportedContent")
+            ul(class="navbar-nav me-auto mb-2 mb-lg-0")
+              li(class="nav-item p-4 m-3")
+                  a(class="nav-link active text-warning fs-3" aria-current="page" href="../")="Ingresar un Producto"
+              li(class="nav-item p-4 m-3")
+                a(class="nav-link text-warning fs-3" href="/productos")="Ver Productos"
+              li(class="nav-item dropdown")
+            form(class="d-flex m-3" role="search")
+              input(
+                class="form-control me-2"
+                type="search"
+                placeholder="Search"
+                aria-label="Search")
+              button(type="button" class="btn btn-light btn-outline-warning")="Search"
+    main
+        div(class="row text-center bg-secondary")
+            h1(class="text-center text-warning")="Productos disponibles(Pug)" 
+            div(class="d-flex justify-content-evenly")
+                each Producto of listaProductos
+                    div(class="card text-bg-light p-2 m-3") 
+                        img(src=Producto.thumbnails class="card-img-top" style="height:430px;width:300px" alt="...")
+                        div(class="card-body text-bg-secondary border border-dark rounded-4")
+                            h2(class="card-title text-warning")=Producto.title
+                            h3(class="card-title text-warning")=Producto.price
+                            h4(class="card-title text-warning")=Producto.id

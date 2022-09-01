@@ -81,8 +81,6 @@ productos.delete('/:id',(req, res) => {
   }
 })
 
-
-
 app.get('/productos',(req,res)=>{
     // render recibe la vista que se renderiza, y los datos que se renderizan en esa vista
     res.render('productos',{listaProductos:listaProductos,listExists:true})
@@ -91,8 +89,12 @@ app.get('/productos',(req,res)=>{
 app.post('/productos',(req,res)=>{
     res.render('formulario',{listExists:true})
 })
-
-
+app.get('/',(req,res)=> {
+    res.render('formulario')
+})
+app.post('/',(req,res)=>{
+    res.render('formulario')
+})
 
 app.use('/api/productos',productos)
 const PORT = process.env.PORT || 8080

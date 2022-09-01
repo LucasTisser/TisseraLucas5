@@ -1,7 +1,7 @@
 {{#if listExists}}
 <div class="row text-center bg-secondary">
 
-    <h1 class="text-center text-warning">Productos disponibles</h1>  
+    <h1 class="text-center text-warning">Productos disponibles(Handlebars)</h1>  
     <div class="d-flex justify-content-evenly">
         {{#each listaProductos}}
         <div class="card text-bg-light p-2 m-3">
@@ -14,8 +14,5 @@
         </div>
         {{/each}}
     </div>
-    <footer class="text-center  bg-success">
-        <button type="button" class="btn btn-warning m-5" id="boton" onclick="paraAtras()">Ingresar un producto nuevo</button>
-    </footer>
 </div>
 {{/if}}

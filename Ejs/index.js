@@ -1,25 +1,32 @@
 const express = require('express')
 const {Router} = express
 const app = express()
+
+app.set('view engine','ejs')
+app.set('views','./views')
+
 app.use(express.json())
 app.use(express.static('public'))
 app.use(express.urlencoded({extended:true}))
 const productos = Router()
 const listaProductos = [
 {
-    "title":"Shampoo",
-    "price":"5USD",
-    "id":"1"
+    title:'Shampoo',
+    price:'5USD',
+    thumbnails:"https://www.pngall.com/wp-content/uploads/4/Shampoo-PNG-Image-HD.png",
+    id:'1'
 },
 {
-    "title":"Acondicionador",
-    "price":"7USD",
-    "id":"2"
+    title:'Acondicionador',
+    price:'7USD',
+    thumbnails:"https://sevilla.abc.es/estilo/bulevarsur//wp-content/uploads/sites/14/2021/09/Garnier-Acondicionador-Fructis-NutriRizos-768x1024.png",
+    id:'2'
 },
 {
-    "title":"Jabon",
-    "price":"2USD",
-    "id":"3"
+    title:'Jabon',
+    price:'2USD',
+    thumbnails:"https://www.nicepng.com/png/full/417-4172056_jabon-png-imagenes-de-javon-de-bao.png",
+    id:'3'
 }]
 productos.get('/', (req,res)=>{
     res.send(listaProductos)
@@ -71,8 +78,25 @@ productos.delete('/:id',(req, res) => {
     res.send("Elemento eliminado")
   }
 })
+
+app.get('/productos',(req,res)=>{
+    // render recibe la vista que se renderiza, y los datos que se renderizan en esa vista
+    res.render('',{listaProductos:listaProductos,listExists:true})
+})
+app.post('/productos',(req,res)=>{
+    res.render('formulario',{listExists:true})
+})
+app.get('/',(req,res)=> {
+    res.render('formulario')
+})
+app.post('/',(req,res)=>{
+    res.render('formulario')
+})
+
 app.use('/api/productos',productos)
-const PORT = 3000
+const PORT = process.env.PORT || 8080
 app.listen(PORT,()=> {
     console.log('Server on '+ PORT)
 })
+
+
